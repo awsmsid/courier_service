@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_full_name: MyString
+  sender_address: MyString
+  sender_phone_number: MyString
+  sender_pin_code: 1
+  receiver_full_name: MyString
+  receiver_address: MyString
+  receiver_phone_number: MyString
+  receiver_pin_code: 1
+  parcel_weight: 1.5
+  service_type: MyString
+  service_cost: 1.5
+  payment_mode: MyString
+  status: MyString
+  tracking_id: MyString
+
+two:
+  sender_full_name: MyString
+  sender_address: MyString
+  sender_phone_number: MyString
+  sender_pin_code: 1
+  receiver_full_name: MyString
+  receiver_address: MyString
+  receiver_phone_number: MyString
+  receiver_pin_code: 1
+  parcel_weight: 1.5
+  service_type: MyString
+  service_cost: 1.5
+  payment_mode: MyString
+  status: MyString
+  tracking_id: MyString

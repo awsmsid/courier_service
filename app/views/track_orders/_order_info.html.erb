@@ -1,0 +1,7 @@
+<% unless @order.blank? %>
+  <h4>Result:</h4>
+  <h5>Tracking ID: <%= @order.tracking_id %><h5>
+  <h5>Status: <%= @order.status %></h5>
+<% else %>
+  <p>No records found.</p>
+<% end %>

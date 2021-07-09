@@ -1,0 +1,13 @@
+<div class="width_30">
+  <h3>Track your courier here</h3>
+  <%= form_tag track_orders_path, remote: true do %>
+    <div class="form-group" style="display: flex;">
+      <%= text_field_tag :tracking_id, "", class: 'form-control', required: true, placeholder: 'Type tracking id here' %>
+      <%= submit_tag('Search', class: 'btn btn-primary', id: 'search_order')%>
+    </div>
+  <% end %>
+  <br/>
+
+  <div id="result_container">
+  </div>
+</div>

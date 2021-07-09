@@ -1,0 +1,93 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :sender_full_name %>
+    <%= form.text_field :sender_full_name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sender_email_address%>
+    <%= form.email_field :sender_email_address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sender_address %>
+    <%= form.text_area :sender_address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sender_phone_number %>
+    <%= form.text_field :sender_phone_number, class: 'form-control', maxlength: 10, minlength: 10, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sender_pin_code %>
+    <%= form.number_field :sender_pin_code, class: 'form-control', maxlength: 6, minlength: 4, required: true   %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :receiver_full_name %>
+    <%= form.text_field :receiver_full_name, class: 'form-control', required: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :receiver_email_address%>
+    <%= form.email_field :receiver_email_address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :receiver_address %>
+    <%= form.text_area :receiver_address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :receiver_phone_number %>
+    <%= form.text_field :receiver_phone_number, class: 'form-control', maxlength: 10, minlength: 10, required: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :receiver_pin_code %>
+    <%= form.number_field :receiver_pin_code, class: 'form-control', maxlength: 6, minlength: 4, required: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parcel_weight, 'Parcel Weight(in gms)' %>
+    <%= form.text_field :parcel_weight, class: 'form-control', required: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :service_type %>
+    <%= form.select :service_type, options_for_select(Order.service_types.map {|key, value| [key.titleize, Order.service_types.key(value)]}), {prompt: 'Select Service Type'},class: 'form-control', required: true %>
+
+  </div>
+
+  <div class="form-group">
+    <%= form.label :service_cost, 'Service Cost(in INR)' %>
+    <%= form.text_field :service_cost, class: 'form-control', required: true  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :payment_mode %>
+    <%= form.select :payment_mode, options_for_select(Order.payment_modes.map {|key, value| [key.titleize, Order.payment_modes.key(value)]}), {prompt: 'Select Payment Mode'},class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select(Order.statuses.map {|key, value| [key.titleize, Order.statuses.key(value)]}), {prompt: 'Select Status'},class: 'form-control', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
